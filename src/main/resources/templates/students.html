@@ -9,13 +9,32 @@
           crossorigin="anonymous">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Student management system</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}"> Student management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
         <div clas s= "container">
             <div class = "row">
                 <h1>  List students  </h1>
             </div>
             <div class="row">
                 <div class="cl-lg-3">
-                    <a th:href = "@{/student/new}" class="btn btn-primary btn-sm mb-3">Add student</a>
+                    <a th:href = "@{/student/new}" class="btn btn-primary btn-sm mb-3"> Add student</a>
                 </div>
             </div>
             <table class = "table table-striped table-bordered">
@@ -24,7 +43,7 @@
                     <th> Student First Name</th>
                     <th> Student Last Name</th>
                     <th> Email</th>
-                    <th> Actions</th>
+                    <th> Actions </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,6 +51,14 @@
                     <td th:text = "${student.firstName}"></td>
                     <td th:text =  "${student.lastName}"></td>
                     <td th:text = "${student.email}"></td>
+                    <td>
+                        <a th:href = "@{/student/edit{id}(id=${student.id})}"
+                           class="btn btn-primary "> update</a>
+
+                        <a th:href = "@{/student/{id}(id=${student.id})}"
+                           class="btn btn-danger "> Delete</a>
+                    </td>
+
 
                 </tr>
                 </tbody>
