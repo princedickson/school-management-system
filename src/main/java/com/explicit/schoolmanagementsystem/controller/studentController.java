@@ -58,4 +58,9 @@ public class studentController {
         return "redirect:/students";
 
     }
+    @GetMapping("/student/{id}")
+    public String deleteStudent(@PathVariable  Long id){
+        studentServicee.deleteStudentByID ( id );
+        return "redirect:/students";
+    }
 }
